@@ -41,7 +41,7 @@ void PokerPlayer::DealCard(Card* C)
 	else if( _hand[1] == NULL )
 		_hand[1] = C;
 	else
-		throw new exception("Player dealt third card");
+		throw new exception();
 
 	NotifyCard( HiddenHandCard, _myposition, C);
 }

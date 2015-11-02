@@ -342,30 +342,44 @@ void HandRank::SetKickers(list<Card> cards, unsigned int& HandRank )
 	SetKick3(c.GetValue(), HandRank);
 }
 
-unsigned int HandRank::GetHandRank( int handsize, Card card1, ...)
+unsigned int HandRank::GetHandRank(int handsize, Card c1, Card c2, Card c3, Card c4, Card c5)
 {
-	va_list paramlist;
-	unsigned int HandRank = 0;
 	list<Card> CardList;
+	CardList.push_back(c1);
+	CardList.push_back(c2);
+	CardList.push_back(c3);
+	CardList.push_back(c4);
+	CardList.push_back(c5);
+	return GetHandRank(CardList);
+}
 
-	va_start(paramlist, card1);
-	CardList.push_back(card1);
-	
-	for(int i=0; i < handsize-1; i++)
-	{
-		CardList.push_back( va_arg(paramlist, Card));
-	}
 
-	CardList.sort();
-	CardList.reverse();
+unsigned int HandRank::GetHandRank(int handsize, Card c1, Card c2, Card c3, Card c4, Card c5, Card c6, Card c7)
+{
+	list<Card> CardList;
+	CardList.push_back(c1);
+	CardList.push_back(c2);
+	CardList.push_back(c3);
+	CardList.push_back(c4);
+	CardList.push_back(c5);
+	CardList.push_back(c6);
+	CardList.push_back(c7);
+	return GetHandRank(CardList);
+}
 
-	if( CheckFlush(CardList, HandRank)) return HandRank;
-	if( CheckStraight(CardList, HandRank)) return HandRank;
-	if( CheckThreeOfAKind(CardList, HandRank)) return HandRank;
-	if( CheckTwoPair(CardList, HandRank)) return HandRank;
-	if( CheckPair(CardList, HandRank) ) return HandRank;
+unsigned int HandRank::GetHandRank(list<Card> cards)
+{
+	unsigned int HandRank = 0;
+	cards.sort();
+	cards.reverse();
 
-	SetHighCard(CardList, HandRank);
+	if( CheckFlush(cards, HandRank)) return HandRank;
+	if( CheckStraight(cards, HandRank)) return HandRank;
+	if( CheckThreeOfAKind(cards, HandRank)) return HandRank;
+	if( CheckTwoPair(cards, HandRank)) return HandRank;
+	if( CheckPair(cards, HandRank) ) return HandRank;
+
+	SetHighCard(cards, HandRank);
 	return HandRank;
 }
 
