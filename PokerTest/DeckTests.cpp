@@ -1,7 +1,7 @@
 
 
 #include "TestBase.h"
-#include "decktest.h"
+#include "DeckTest.h"
 #include "deck.h"
 
 namespace DeckTests
@@ -43,3 +43,4 @@ namespace DeckTests
 	}
 
 }
+

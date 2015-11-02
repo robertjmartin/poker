@@ -1,5 +1,5 @@
 #include "TestBase.h"
-#include "tabletests.h"
+#include "TableTests.h"
 #include "TestDeck.h"
 #include "HoldEmTable.h"
 #include "PokerTestPlayer.h"
