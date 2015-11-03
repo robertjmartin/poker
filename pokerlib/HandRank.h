@@ -4,6 +4,7 @@
 
 #include "card.h"
 #include <list>
+#include <algorithm>
 
 using namespace std;
 
