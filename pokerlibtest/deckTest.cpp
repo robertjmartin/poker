@@ -11,27 +11,27 @@ namespace pokerlibtest
 	{
 	public:
 		
-		TEST_METHOD(CreateDeckTest)
+		TEST_METHOD(Deck_CreateDeck)
 		{
 			Deck D;
 			Assert::AreEqual(D.GetSize(), 52, L"Verify Deck is created");			
 		}
 
-		TEST_METHOD(ShuffleTest)
+		TEST_METHOD(Deck_Shuffle)
 		{
 			Deck D;
 			D.Shuffle(100);
 			Assert::AreEqual(D.GetSize(), 52, L"Verify deck valid after shuffling");
 		}
 
-		TEST_METHOD(DealCardTest)
+		TEST_METHOD(Deck_DealCard)
 		{
 			Deck D;
 			D.DrawCard();
 			Assert::AreEqual(D.GetSize(), 51, L"Verify draw card from deck");
 		}
 
-		TEST_METHOD(DealAllCardTest)
+		TEST_METHOD(Deck_DealAllCard)
 		{
 			Deck D;
 			while (D.DrawCard() != NULL);
