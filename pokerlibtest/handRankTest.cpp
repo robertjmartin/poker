@@ -8,7 +8,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace pokerlibtest
 {
-	TEST_CLASS(DeckTest)
+	TEST_CLASS(HandRankTest)
 	{
 	public:
 
