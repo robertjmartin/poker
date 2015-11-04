@@ -282,5 +282,40 @@ namespace pokerlibtest
 			Assert::AreEqual(920u, T.GetChipCount(0), L"Player 0 should have 920");
 			Assert::AreEqual(1160u, T.GetChipCount(1), L"Player 1 should have 1160");			
 		}		
+
+		TEST_METHOD(Table_SingleHand_ThreePlayer_SeatTwo_FlushWin)
+		{
+			TestDeck deck;
+
+			deck.SetNumberOfPlayers(3);
+			deck.SetDealerPosition(0);
+			deck.SetPlayersCards(0, new Card(2, Spades), new Card(7, Hearts));
+			deck.SetPlayersCards(1, new Card(3, Hearts), new Card(11, Hearts));
+			deck.SetPlayersCards(2, new Card(4, Spades), new Card(12, Spades));
+			deck.SetCommunityCard(0, new Card(12, Hearts));
+			deck.SetCommunityCard(1, new Card(4, Hearts));
+			deck.SetCommunityCard(2, new Card(11, Spades));
+			deck.SetCommunityCard(3, new Card(11, Clubs));
+			deck.SetCommunityCard(4, new Card(5, Hearts));
+
+			HoldEmTable T(1, &deck);
+			T.tablelog << "-----SingleHand_ThreePlayer_SeatTwo_PairWin" << endl;
+			PokerTestPlayer* Joe = new PokerTestPlayer(1000);
+			PokerTestPlayer* Mike = new PokerTestPlayer(1000);
+			PokerTestPlayer* Tom = new PokerTestPlayer(1000);
+
+			T.AddPlayer(Joe);
+			T.AddPlayer(Mike);
+			T.AddPlayer(Tom);
+
+			Joe->QueueActions(20, 20, 20, 20, -2);
+			Mike->QueueActions(10, 20, 20, 20, -2);
+			Tom->QueueActions(0, 20, 20, 20, -2);
+
+			T.playHand();
+
+			Assert::AreEqual(920u, T.GetChipCount(0), L"Player 0 should have 920");
+			Assert::AreEqual(1160u, T.GetChipCount(1), L"Player 1 should have 1160");
+		}
 	};
 }
