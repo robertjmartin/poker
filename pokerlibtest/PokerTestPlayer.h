@@ -5,8 +5,6 @@
 #include "PokerPlayer.h"
 #include <queue>
 
-#define MAX_SEATS 10u // BUGBUG does this need to be passed?
-
 class PokerTestPlayer : public PokerPlayer
 {
 public:

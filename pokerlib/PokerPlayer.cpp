@@ -11,7 +11,7 @@ PokerPlayer::PokerPlayer(unsigned int chipcount)
 	_myposition = 99; 
     
 	char buf[32];
-	sprintf(buf, "Player%d", ++PokerPlayer::_nextPlayerNameId);
+	sprintf_s(buf, "Player%d", ++PokerPlayer::_nextPlayerNameId);
 	_name = buf;
 }
 

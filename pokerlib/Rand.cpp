@@ -5,7 +5,7 @@
 
 PokerRandom::PokerRandom()
 {
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 }
 
 int PokerRandom::GetRandomInt(unsigned int max)

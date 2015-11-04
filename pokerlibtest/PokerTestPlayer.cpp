@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "PokerTestPlayer.h"
+#include "HoldEmTable.h"
 #include <cstdarg>
 
 PokerTestPlayer::PokerTestPlayer(unsigned int chipcount) : PokerPlayer(chipcount)

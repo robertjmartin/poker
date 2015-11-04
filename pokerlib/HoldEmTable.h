@@ -11,7 +11,7 @@
 
 using namespace std;
 
-#define MAX_SEATS 10
+#define MAX_SEATS 10u
 
 class HoldEmTable
 {
