@@ -66,7 +66,7 @@ Card* PokerPlayer::CollectCard()
 
 int PokerPlayer::GetAction(unsigned int mypot, unsigned int minbet)
 {
-	int action = Action(mypot, minbet);
+	unsigned int action = Action(mypot, minbet);
 
 	if( action == -1 || mypot + action < minbet )
 		return -1;
