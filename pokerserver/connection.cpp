@@ -36,7 +36,7 @@ tcp::socket& connection::socket()
 
 void connection::start()
 {   
-    memset( buf_.c_array(), 0, 1024 );
+    memset(buf_.c_array(), 0, 1024);
     _socket.async_read_some(boost::asio::buffer(buf_),
                             boost::bind(&connection::handle_read, shared_from_this(),
                             boost::asio::placeholders::error, 
@@ -45,34 +45,32 @@ void connection::start()
 
 int connection::send( const char* msg )
 {
-    return _socket.write_some( boost::asio::buffer(msg, strlen(msg)) );
+    return _socket.write_some(boost::asio::buffer(msg, strlen(msg)));
 }
 
 int connection::sendData( const void* data, unsigned int size)
 {
-	return _socket.write_some( boost::asio::buffer(data, size) );
+	return _socket.write_some(boost::asio::buffer(data, size));
 }
 
-
-
-void connection::handle_read( const::boost::system::error_code& e, std::size_t bytes_transfered)
+void connection::handle_read(const::boost::system::error_code& e, std::size_t bytes_transfered)
 {
-    if(!e && bytes_transfered > 0)
+    if (!e && bytes_transfered > 0)
     { 
         std::string data = buf_.c_array();
 
         // remove line ending (allows testing through PUTTY)
         size_t nl = data.find('\r');
-        if( nl != std::string::npos )
+        if ( nl != std::string::npos )
         {
             data.erase(nl);
         }
 		
 		//cout << "recieved: " << data << endl;
 
-		if( _player == NULL)
+		if ( _player == NULL)
 		{
-			if(data.substr(0,5) == "SPReg")
+			if (data.substr(0,5) == "SPReg")
 			{
 				_player = new PokerTcpPlayer(1000, data.substr(5, string::npos), this);
 				this->_server->newPlayers.push(_player);
@@ -80,11 +78,11 @@ void connection::handle_read( const::boost::system::error_code& e, std::size_t b
 		}
 		else
 		{
-			_player->HandleRecv( buf_.c_array(), buf_.size());
+			_player->HandleRecv(buf_.c_array(), buf_.size());
 		}
       
 		// prepare for next read
-        memset( buf_.c_array(), 0, 1024 );
+        memset(buf_.c_array(), 0, 1024);
         _socket.async_read_some(boost::asio::buffer(buf_),
                                 boost::bind(&connection::handle_read, shared_from_this(),
                                     boost::asio::placeholders::error,

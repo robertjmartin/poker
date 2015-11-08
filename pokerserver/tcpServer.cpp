@@ -39,7 +39,7 @@ void tcp_server::start_accept()
 
 void tcp_server::handle_accept(connection::pointer new_connection, const boost::system::error_code& error)
 {
-    if(!error)
+    if (!error)
     {
         connectioncount_++;
         new_connection->start();
@@ -59,7 +59,7 @@ bool tcp_server::sendto(std::string name, const char* msg)
     std::string logmsg = "Send To[";
     logmsg += name + "]" + msg;
   
-    if(name == "broadcast")
+    if (name == "broadcast")
     {
         broadcast(msg);
         return true;
@@ -67,7 +67,7 @@ bool tcp_server::sendto(std::string name, const char* msg)
 
     it = connections_.find(name);
 
-    if( it != connections_.end() )
+    if (it != connections_.end())
     {
         (*it).second->send(msg);
         return true;
@@ -81,7 +81,7 @@ bool tcp_server::sendto(std::string name, const char* msg)
 void tcp_server::broadcast(const char* msg)
 {
     map<std::string, connection*>::iterator it;
-    for( it=connections_.begin(); it != connections_.end(); it++ )
+    for (it=connections_.begin(); it != connections_.end(); it++)
     {
         (*it).second->send(msg);
     }

@@ -22,13 +22,13 @@ using namespace std;
 
 void TableManager(tcp_server* s)
 {	
-	while(1)
+	while (1)
 	{
-		while( !s->newPlayers.empty() )
+		while (!s->newPlayers.empty())
 		{
 			PokerTcpPlayer* p = s->newPlayers.front();
 			
-			if( MAX_SEATS != tcp_server::Table.AddPlayer((PokerPlayer*)p))
+			if (MAX_SEATS != tcp_server::Table.AddPlayer((PokerPlayer*)p))
 			{
 				s->newPlayers.pop();
 			}
@@ -38,7 +38,7 @@ void TableManager(tcp_server* s)
 			}
 		}	
 				
-		if( tcp_server::Table.GetNumberOfPlayers() >= 2 )
+		if (tcp_server::Table.GetNumberOfPlayers() >= 2)
 		{
 			tcp_server::Table.playHand();
 			Sleep(3000);
@@ -47,7 +47,6 @@ void TableManager(tcp_server* s)
 		{
 			Sleep(1000);
 		}
-
 	}
 }
 
@@ -59,8 +58,10 @@ int main()
 	boost::thread workerThread(TableManager, s);
 
 	s->Table.AddPlayer(new PokerBot(5000));
-	s->Table.AddPlayer(new PokerBot(5000));s->Table.AddPlayer(new PokerBot(5000));s->Table.AddPlayer(new PokerBot(5000));s->Table.AddPlayer(new PokerBot(5000));
+	s->Table.AddPlayer(new PokerBot(5000));
+	s->Table.AddPlayer(new PokerBot(5000));
+	s->Table.AddPlayer(new PokerBot(5000));
+	s->Table.AddPlayer(new PokerBot(5000));
 
 	io_service.run();
-
 }

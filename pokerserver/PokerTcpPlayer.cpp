@@ -45,10 +45,10 @@ void PokerTcpPlayer::Disconnect()
 
 void PokerTcpPlayer::HandleRecv(void*data, int size)
 {
-	if( *(unsigned char*)data == 0xBA )
+	if (*(unsigned char*)data == 0xBA)
 	{
 		boost::lock_guard<boost::mutex> lock(_mut);
-		if( _waitingForAction)
+		if (_waitingForAction)
 		{
 			RAData* RA = (RAData*)data;
 			_lastActionRecieved = RA->_action;
@@ -69,7 +69,7 @@ int PokerTcpPlayer::Action(unsigned int mypot, unsigned int bet)
 	_lastActionRecieved = -1;
 	_waitingForAction = true;
 
-	if( _conn )
+	if (_conn)
 	{
 		AData A;
 		memset(&A, NULL, sizeof(A));
@@ -78,11 +78,10 @@ int PokerTcpPlayer::Action(unsigned int mypot, unsigned int bet)
 		_conn->sendData(&A, sizeof(A));
 
 		boost::unique_lock<boost::mutex> lock(_mut);
-		while(_waitingForAction)
+		while (_waitingForAction)
 		{
 			_cond.wait(lock);
 		}
-
 		return _lastActionRecieved;
 	}
 	else
@@ -100,7 +99,7 @@ struct NHSData
 
 void PokerTcpPlayer::NotifyHandStart(unsigned int dealerposition)
 {
-	if(_conn)
+	if (_conn)
 	{
 		NHSData NHS;
 		memset(&NHS, NULL, sizeof(NHS));
@@ -123,7 +122,7 @@ struct NPIData
 
 void PokerTcpPlayer::NotifyPlayerInfo(unsigned int position, bool you, string name, unsigned int chipStackSize)
 {
-	if(_conn)
+	if (_conn)
 	{
 		NPIData NPI;
 		memset(&NPI, NULL, sizeof(NPI));
@@ -147,7 +146,7 @@ struct NAData
 
 void PokerTcpPlayer::NotifyAction(unsigned int position, int action)
 {	
-	if(_conn)
+	if (_conn)
 	{
 		NAData NA;
 		memset(&NA, NULL, sizeof(NA));
@@ -171,7 +170,7 @@ struct NCData
 
 void PokerTcpPlayer::NotifyCard(cardtype type, unsigned int position, Card* card)
 {
-	if(_conn)
+	if (_conn)
 	{
 		NCData NC;
 		memset(&NC, NULL, sizeof(NC));
@@ -195,7 +194,7 @@ struct NWData
 
 void PokerTcpPlayer::NotifyWinner(unsigned int position, unsigned int potsize)
 {
-	if(_conn)
+	if (_conn)
 	{
 		NWData NW;
 		memset(&NW, NULL, sizeof(NW));
@@ -209,7 +208,7 @@ void PokerTcpPlayer::NotifyWinner(unsigned int position, unsigned int potsize)
 
 int PokerTcpPlayer::StillInGame()
 {
-	if(_conn != NULL )
+	if (_conn != NULL )
 		return 1;
 	else
 		return 0;
