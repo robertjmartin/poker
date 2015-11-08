@@ -5,7 +5,6 @@
 #include <boost/asio/system_timer.hpp>
 #include <boost/bind.hpp>
 #include <boost/enable_shared_from_this.hpp>
-#include <boost/enable_shared_from_this.hpp>
 #include <boost/thread/condition_variable.hpp>
 #include <boost/thread.hpp>
 #include <boost/array.hpp>
