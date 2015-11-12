@@ -63,5 +63,13 @@
     <Build Include="Servers.sql" />
     <Build Include="Tables.sql" />
     <Build Include="Seats.sql" />
+    <Build Include="PhysicalServers.sql" />
+    <Build Include="ServerStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="pokerdb.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pokerdb.publish.xml" />
   </ItemGroup>
 </Project>

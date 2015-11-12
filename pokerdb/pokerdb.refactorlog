@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="8bf83cf8-65e3-44f7-bb1f-df244be589b4" ChangeDateTime="11/12/2015 16:46:27">
+    <Property Name="ElementName" Value="[dbo].[Seats].[Available]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Seats]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Key" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f89755de-dcba-43cf-aa2b-fa059523aa23" ChangeDateTime="11/12/2015 17:44:31">
+    <Property Name="ElementName" Value="[dbo].[PhysicalServers].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PhysicalServers]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PhysicalServerId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="67f2b24c-77c9-46ab-8aaa-337e080118e1" ChangeDateTime="11/12/2015 17:44:52">
+    <Property Name="ElementName" Value="[dbo].[PhysicalServers].[IP]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PhysicalServers]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Address" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0364ba3b-43f4-43c5-bf29-c08e16c6d5fc" ChangeDateTime="11/12/2015 17:59:40">
+    <Property Name="ElementName" Value="[dbo].[ServerStatus].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ServerStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ServerStatusId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0d67bf24-77c0-4d9a-9ee9-f119debeca30" ChangeDateTime="11/12/2015 18:06:41">
+    <Property Name="ElementName" Value="[dbo].[PhysicalServers].[ServerStatusId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PhysicalServers]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Available" />
+  </Operation>
+</Operations>

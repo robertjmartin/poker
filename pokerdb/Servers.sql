@@ -1,6 +1,8 @@
 ﻿CREATE TABLE [dbo].[Servers]
 (
 	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
-    [address] VARCHAR(50) NOT NULL, 
-    [port] INT NOT NULL
+    [PhysicalServerId] INT NOT NULL,
+	[Port] INT NOT NULL, 
+	[Key] BINARY(50) NOT NULL, 
+    [ServerStatusId] INT NOT NULL
 )

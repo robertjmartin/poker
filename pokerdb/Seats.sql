@@ -2,5 +2,6 @@
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
     [TableId] UNIQUEIDENTIFIER NOT NULL, 
-    [Available] BIT NOT NULL
+    [Key] BINARY(50) NULL, 
+    [ChipCount] INT NULL
 )
