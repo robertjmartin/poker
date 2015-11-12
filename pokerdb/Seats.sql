@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Seats]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [TableId] UNIQUEIDENTIFIER NOT NULL, 
+    [Available] BIT NOT NULL
+)

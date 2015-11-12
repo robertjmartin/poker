@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Servers]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [address] VARCHAR(50) NOT NULL, 
+    [port] INT NOT NULL
+)
