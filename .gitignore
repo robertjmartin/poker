@@ -3,3 +3,6 @@ tablelog.txt
 pokerlib/x64/*
 pokerlibtest/x64/*
 pokerserver/x64/*
+x64/*
+*.db
+*.opendb
