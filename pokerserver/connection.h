@@ -16,7 +16,6 @@ public:
     static pointer create(boost::asio::io_service& io_service, tcp_server* server);
     int send(const char* msg);
 	int sendData( const void* data, unsigned int size);
-    std::string GetName();
     tcp::socket& socket();
     void start();
 
@@ -24,9 +23,6 @@ private:
 
     void handle_read( const::boost::system::error_code& e,
                       std::size_t bytes_transfered);
-
-    void handle_keepalive( const::boost::system::error_code& e);
-    void handle_authenticatetimer( const::boost::system::error_code& e);
 
 	boost::array<char,1024> buf_;
 
