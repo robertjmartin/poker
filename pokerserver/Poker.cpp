@@ -12,8 +12,8 @@
 #include <queue>
 
 #include "connection.h"
-#include "HoldEmTable.h"
-#include "PokerBot.h"
+#include "../pokerlib/HoldEmTable.h"
+#include "../pokerlib/PokerBot.h"
 #include "PokerTcpPlayer.h"
 
 #include "tcpServer.h"

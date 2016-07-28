@@ -9,13 +9,13 @@
 
 #include <queue>
 
-#include "HoldEmTable.h"
+#include "../pokerlib/HoldEmTable.h"
 
 #include "connection.h"
 #include "tcpServer.h"
 #include "PokerTcpPlayer.h"
-#include "PokerPlayer.h"
-#include "card.h"
+#include "../pokerlib/PokerPlayer.h"
+#include "../pokerlib/card.h"
 
 using namespace std;
 

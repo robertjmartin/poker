@@ -8,10 +8,10 @@
 #include <queue>
 #include <map>
 
-#include "HoldEmTable.h"
+#include "../pokerlib/HoldEmTable.h"
 
 #include "connection.h"
-#include "PokerPlayer.h"
+#include "../pokerlib/PokerPlayer.h"
 #include "PokerTcpPlayer.h"
 #include "tcpserver.h"
 

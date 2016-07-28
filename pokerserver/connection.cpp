@@ -10,7 +10,7 @@
 #include <queue>
 #include <iostream>
 
-#include "HoldEmTable.h"
+#include "../pokerlib/HoldEmTable.h"
 #include "connection.h"
 
 #include "PokerTcpPlayer.h"
