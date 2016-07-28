@@ -53,31 +53,6 @@ void tcp_server::handle_disconnect(connection* conn)
     connectioncount_--;
 }
 
-bool tcp_server::sendto(std::string name, const char* msg)
-{
-    map<std::string, connection*>::iterator it;
-    std::string logmsg = "Send To[";
-    logmsg += name + "]" + msg;
-  
-    if (name == "broadcast")
-    {
-        broadcast(msg);
-        return true;
-    }
-
-    it = connections_.find(name);
-
-    if (it != connections_.end())
-    {
-        (*it).second->send(msg);
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
 void tcp_server::broadcast(const char* msg)
 {
     map<std::string, connection*>::iterator it;

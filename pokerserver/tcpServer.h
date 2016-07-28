@@ -13,7 +13,6 @@ class tcp_server
         tcp_server(boost::asio::io_service& io_service);
         void handle_disconnect(connection* conn);
         unsigned int GetConnectionCount();
-        bool sendto(std::string name, const char* msg);
         void broadcast(const char* msg);
 
 		std::queue<PokerTcpPlayer*> newPlayers;
